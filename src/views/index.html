@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<!--
+* CoreUI - Free Bootstrap Admin Template
+* @version v4.0.1
+* @link https://coreui.io
+* Copyright (c) 2021 creativeLabs Łukasz Holeczek
+* Licensed under MIT (https://coreui.io/license)
+-->
+
+<!-- Breadcrumb-->
+<html lang="en">
+
+<head>
+  <base href="./">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+  <meta name="author" content="Łukasz Holeczek">
+  <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+  <title>Squarera Assessment</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Vendors styles-->
+  <link rel="stylesheet" href="node_modules/simplebar/dist/simplebar.css">
+  <link rel="stylesheet" href="css/vendors/simplebar.css">
+  <!-- Main styles for this application-->
+  <link href="css/style.css" src="../scss/style.scss" rel="stylesheet">
+  <!-- We use those styles to show code examples, you should remove them in your application.-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
+  <link href="css/examples.css" rel="stylesheet">
+  <!-- Global site tag (gtag.js) - Google Analytics-->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    // Shared ID
+    gtag('config', 'UA-118965717-3');
+    // Bootstrap ID
+    gtag('config', 'UA-118965717-5');
+  </script>
+  <link href="node_modules/@coreui/chartjs/dist/css/coreui-chartjs.css" rel="stylesheet">
+  <link href="css/style.css" src="../scss/style.scss" rel="stylesheet">
+
+  <style>
+    th{
+      font-size: 5px;
+      font-weight:700;
+    }
+    h5{
+      font-size: 15px !important;
+    }
+    h4{
+      font-size: 12px !important;
+      margin: 0;
+    }
+    small{
+      font-size: 8px;
+    }
+    ul{
+      list-style-type: none;
+    }
+    
+  </style>
+
+</head>
+
+<body>
+  <div class="sidebar sidebar-dark sidebar-fixed sidebar-self-hiding-xl" style="width: 6%;" id="sidebar">
+    <div class="sidebar-brand d-none d-md-flex">
+      <svg class="sidebar-brand-full" width="118" height="60" alt="CoreUI Logo">
+        <use xlink:href="assets/brand/coreui.svg#signet"></use>
+      </svg>
+
+      <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
+        <use xlink:href="assets/brand/coreui.svg#signet"></use><br> <br>
+        <use xlink:href="assets/brand/coreui.svg#signet"></use>
+      </svg>
+    </div>
+    <ol class="sidebar-nav" data-coreui="navigation" data-simplebar>
+      <li class="nav-item" style="background-color: #1565c0;"><a class="nav-link" href="index.html">
+          <svg class="nav-icon" style="height: 40px; width:55px; padding-left:5px;">
+            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-speedometer"></use>
+          </svg></a>
+        <h6 style="font-size: 0.5rem; padding-left: 10px;">Resource</h6>
+      </li>
+    </ol>
+
+    <div class="mb-3">
+      <svg class="nav-icon" style="height: 50px; width:50px; padding-left:27px">
+        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-account-logout"></use>
+      </svg>
+      <h6 style="font-size: 0.8rem; padding-left: 21px;">LogOut</h6></a>
+    </div>
+    <!-- <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button> -->
+  </div>
+  <div class="d-flex flex-column min-vh-100 bg-light" style="padding-left: 6%; padding-right: 2%;">
+    <header class="header header-sticky mb-4 shadow-sm">
+      <div class="container-fluid" style="height: 40px !important;">
+        <button class="header-toggler px-md-0 me-md-3" type="button"
+          onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+          <svg class="icon icon-lg">
+            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-menu"></use>
+          </svg>
+        </button><a class="header-brand d-md-none" href="#">
+          <svg width="118" height="46" alt="CoreUI Logo">
+            <use xlink:href="assets/brand/coreui.svg#full"></use>
+          </svg></a>
+        <ul class="header-nav d-none d-md-flex align-items-start">
+          <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+
+        </ul>
+        <ul class="header-nav ms-auto">
+          <li class="nav-item">
+            <svg class="icon icon-lg">
+            </svg>
+          </li>
+          <li class="nav-item">
+            <svg class="icon icon-lg"></svg>
+          </li>
+          <li class="nav-item"></a>
+            <svg class="icon icon-lg"></svg>
+          </li>
+        </ul>
+        <ul class="header-nav ms-3">
+          <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button"
+              aria-haspopup="true" aria-expanded="false">
+              <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/8.jpg" alt="user@email.com">
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end pt-0">
+              <div class="dropdown-header bg-light py-2">
+                <div class="fw-semibold">Account</div>
+              </div><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-bell"></use>
+                </svg> Updates<span class="badge badge-sm bg-info ms-2">42</span></a><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-envelope-open"></use>
+                </svg> Messages<span class="badge badge-sm bg-success ms-2">42</span></a><a class="dropdown-item"
+                href="#">
+                <svg class="icon me-2">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-task"></use>
+                </svg> Tasks<span class="badge badge-sm bg-danger ms-2">42</span></a><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-comment-square"></use>
+                </svg> Comments<span class="badge badge-sm bg-warning ms-2">42</span></a>
+              <div class="dropdown-header bg-light py-2">
+                <div class="fw-semibold">Settings</div>
+              </div><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-user"></use>
+                </svg> Profile</a><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-settings"></use>
+                </svg> Settings</a><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-credit-card"></use>
+                </svg> Payments<span class="badge badge-sm bg-secondary ms-2">42</span></a><a class="dropdown-item"
+                href="#">
+                <svg class="icon me-2">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-file"></use>
+                </svg> Projects<span class="badge badge-sm bg-primary ms-2">42</span></a>
+              <div class="dropdown-divider"></div><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-lock-locked"></use>
+                </svg> Lock Account</a><a class="dropdown-item" href="#">
+                <svg class="icon me-2">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-account-logout"></use>
+                </svg> Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="header-divider border"></div>
+      <div class="container-fluid bg-green" style="height: 42px;">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb my-0 ms-2">
+            <li class="breadcrumb-item">
+              <!-- if breadcrumb is single--><span>Home</span>
+            </li>
+            <li class="breadcrumb-item active"><span>Resource</span></li>
+          </ol>
+        </nav>
+      </div>
+    </header>
+    <div class="body flex-grow-1 px-3">
+      <div class="container-lg">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row" style="font-size: 15px;">
+                  <div class="col-md-4 text-start align-baseline">
+                    <svg class="icon text-secondary">
+                      <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-calendar"></use>
+                    </svg>
+                    <span class="text-medium-emphasis" style="padding-left: 5px;">Fri Jul 09 2021</span>
+                  </div>
+                  <div class="col-md-4 text-center align-baseline">
+                    <svg class="icon text-danger align-bottom" style="width: 22px; height:22px;">
+                      <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-swap-horizontal"></use>
+                    </svg>
+                    <span style="padding-left: 5px;"><b>Week Range: </b><span  class="text-medium-emphasis">05|07 - 11|07</span></span>
+                  </div>
+                  <div class="col-md-4 text-end align-baseline">
+                    <svg class="icon text-info">
+                      <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-calendar"></use>
+                    </svg>
+                    <span style="padding-left: 5px;"><b>Curren Week: </b><span class="text-medium-emphasis">28</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card mb-4">
+              <div class="card-body">
+
+                <!-- /.row--><br>
+                <div class="table-responsive">
+                  <table class="table table-borderless mb-0">
+                    <colgroup>
+                      <col span='9'>
+                      <col span="6" style="background-color: #e3f2fd;">
+                  </colgroup>
+                    <thead class="table-white fw-semibold">
+                      <tr class="align-middle text-center">
+                        <th class="text-center">Associate
+                          <!-- <svg class="icon">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-people"></use>
+                          </svg> -->
+                        </th>
+                        <th></th>
+                        <th>Seniority</th>
+                        <th>Current<br>Week</th>
+                        <th>Next<br>Week</th>
+                        <th>Previous<br>Billables</th>
+                        <th>Out of Office</th>
+                        <th>Total<br>YTD</th>
+                        <th>Level</th>
+                        <th style="background-color:#bbdefb;">Matter#</th>
+                        <th style="background-color:#bbdefb;">Client</th>
+                        <th style="background-color:#bbdefb;">Matter</th>
+                        <th style="background-color:#bbdefb;">Partner</th>
+                        <th style="background-color:#bbdefb;">Requested By</th>
+                        <th style="background-color:#bbdefb;">Decision</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="align-top text-center header-divider">
+                        <td class="">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg"
+                              alt="user@email.com"></div>
+                        </td>
+                        <td>
+                          <h5>Yiorgos Avraamu</h5>
+                        </td>
+                        <td >
+                          <h5>Trainee</h5>
+                        </td>
+                        <td>
+                          <div class="">
+                            <svg class="icon text-warning">
+                              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-circle"></use>
+                            </svg>
+                          </div>
+                        </td>
+                        <td class="">
+                          <div class="">
+                            <svg class="icon text-success">
+                              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-circle"></use>
+                            </svg>
+                          </div>
+                        </td>
+                        <td>
+                          <!-- <div class="small text-medium-emphasis">Last login</div>
+                          <div class="fw-semibold">10 sec ago</div> -->
+                          <div><h4>20.5</h4></div>
+                        </td>
+                        <td>
+                          <div class="text-start" style="font-size: 10px;">
+                            <h4>(02/07/21) Military leave</h4>
+                            <h4>(03/08/21) Sick without Dr. certificate</h4>
+                            <h4>(04/08/21) Sich with Dr. certificate</h4>
+
+                          </div>
+                        </td>
+                        <td><h4>10.5</h4></td>
+                        <td><h4>L1</h4></td>
+                        <td><h4>456709<h4></td>
+                        <td class="text-start"><h4>Test-Client 100051</h4></td>
+                        <td class="text-start"><h4>Test-Matter 100410</h4></td>
+                        <td><h4>MSM</h4></td>
+                        <td class="text-start">
+                          <h4>Magnum Smith</h4>
+                          <small class="text-medium-emphasis">(02/07/21-13:55)</small>
+
+                        </td>
+                        <td>
+                          <svg class="icon text-success">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check-alt"></use>
+                          </svg>
+                          <svg class="icon text-danger">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-x"></use>
+                          </svg>
+                        </td>
+                      </tr>
+                      <tr class=" align-top text-center header-divider">
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/2.jpg"
+                              alt="user@email.com"></div>
+                        </td>
+                        <td>
+                          <h5>Avram Tarasios</h5>
+                        </td>
+                        <td >
+                          <h5>Junior</h5>
+                        </td>
+                        <td>
+                          <div class="">
+                            <svg class="icon text-danger">
+                              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-circle"></use>
+                            </svg>
+                          </div>
+                        </td>
+                        <td class="">
+                          <div class="">
+                            <svg class="icon text-dark">
+                              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-circle"></use>
+                            </svg>
+                          </div>
+                        </td>
+                        <td>
+                          <!-- <div class="small text-medium-emphasis">Last login</div>
+                          <div class="fw-semibold">10 sec ago</div> -->
+                          <div><h4>20.5</h4></div>
+                        </td>
+                        <td>
+                          <div class="text-start" style="font-size: 10px;">
+                            <h4>No Holidays</h4>
+
+                          </div>
+                        </td>
+                        <td><h4>301.5</h4></td>
+                        <td><h4>L2</h4></td>
+                        <td>
+                          <h4>156709</h4>
+                        </td>
+                        <td class="text-start"><h4>Test-Client 100051</h4></td>
+                        <td class="text-start"><h4>Test-Matter 100310</h4></td>
+                        <td><h4>MSM</h4></td>
+                        <td class="text-start">
+                          <h4>Magnum Smith</h4>
+                          <small class="text-medium-emphasis">(02/07/21-13:55)</small>
+
+                        </td>
+                        <td>
+                          <svg class="icon text-success">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check-alt"></use>
+                          </svg>
+                          <svg class="icon text-danger">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-x"></use>
+                          </svg>
+                        </td>
+                      </tr>
+
+                      <tr class=" align-top text-center">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <h4>100709</h4>
+                        </td>
+                        <td class="text-start"><h4>Test-Client 100051</h4></td>
+                        <td class="text-start"><h4>Test-Matter 100000</h4></td>
+                        <td><h4>MSM</h4></td>
+                        <td class="text-start">
+                          <h4>Duccan Chris</h4>
+                          <small class="text-medium-emphasis">(02/07/21-13:55)</small>
+
+                        </td>
+                        <td>
+                          <svg class="icon text-success">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check-alt"></use>
+                          </svg>
+                          <svg class="icon text-danger">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-x"></use>
+                          </svg>
+                        </td>
+                      </tr>
+
+                      <tr class=" align-top text-center">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <h4>456009</h4>
+                        </td>
+                        <td class="text-start"><h4>Test-Client 100051</h4></td>
+                        <td class="text-start"><h4>Test-Matter 100410</h4></td>
+                        <td><h4>MSM</h4></td>
+                        <td class="text-start">
+                          <h4>Magnus Smith</h4>
+                          <small class="text-medium-emphasis">(02/07/21-13:55)</small>
+
+                        </td>
+                        <td>
+                          <svg class="icon text-success">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check-alt"></use>
+                          </svg>
+                          <svg class="icon text-danger">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-x"></use>
+                          </svg>
+                        </td>
+                      </tr>
+
+
+                      <tr class="align-top text-center header-divider">
+                        <td class="text-center">
+                          <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/3.jpg"
+                              alt="user@email.com"></div>
+                        </td>
+                        <td>
+                          <div>Quintin Ed</div>
+                        </td>
+                        <td >
+                          <h5>Junior</h5>
+                        </td>
+                        <td>
+                          <div class="">
+                            <svg class="icon text-warning">
+                              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-circle"></use>
+                            </svg>
+                          </div>
+                        </td>
+                        <td class="">
+                          <div class="">
+                            <svg class="icon text-info">
+                              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-circle"></use>
+                            </svg>
+                          </div>
+                        </td>
+                        <td>
+                          <!-- <div class="small text-medium-emphasis">Last login</div>
+                          <div class="fw-semibold">10 sec ago</div> -->
+                          <div><h4>20.5</h4></div>
+                        </td>
+                        <td>
+                          <div class="text-start" style="font-size: 10px;">
+                            <h4>(02/07/21) Military Leave</h4>
+                            <h4>(03/08/21) Some long reason for</h4>
+                            <h4>(04/28/21) Some reason</h4>
+
+                          </div>
+                        </td>
+                        <td><h4>301.5</h4></td>
+                        <td><h4>L2</h4></td>
+                        <td>
+                          <h4>156709</h4>
+                        </td>
+                        <td class="text-start"><h4>Test-Client 100051</h4></td>
+                        <td class="text-start"><h4>Test-Matter 100310</h4></td>
+                        <td><h4>MSM</h4></td>
+                        <td class="text-start">
+                          <h4>Magnum Smith</h4>
+                          <small class="text-medium-emphasis">(02/07/21-13:55)</small>
+
+                        </td>
+                        <td>
+                          <svg class="icon text-success">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check-alt"></use>
+                          </svg>
+                          <svg class="icon text-danger">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-x"></use>
+                          </svg>
+                        </td>
+                      </tr>
+
+                      <tr class=" align-top text-center">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <h4>100709</h4>
+                        </td>
+                        <td class="text-start"><h4>Test-Client 100051</h4></td>
+                        <td class="text-start"><h4>Test-Matter 100000</h4></td>
+                        <td><h4>MSM</h4></td>
+                        <td class="text-start">
+                          <h4>Duccan Chris</h4>
+                          <small class="text-medium-emphasis">(02/07/21-13:55)</small>
+
+                        </td>
+                        <td>
+                          <svg class="icon text-success">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check-alt"></use>
+                          </svg>
+                          <svg class="icon text-danger">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-x"></use>
+                          </svg>
+                        </td>
+                      </tr>
+
+                      <tr class=" align-top text-center">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <h4>456009</h4>
+                        </td>
+                        <td class="text-start"><h4>Test-Client 100051</h4></td>
+                        <td class="text-start"><h4>Test-Matter 100410</h4></td>
+                        <td><h4>MSM</h4></td>
+                        <td class="text-start">
+                          <h4>Magnus Smith</h4>
+                          <small class="text-medium-emphasis">(02/07/21-13:55)</small>
+
+                        </td>
+                        <td>
+                          <svg class="icon text-success">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check-alt"></use>
+                          </svg>
+                          <svg class="icon text-danger">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-x"></use>
+                          </svg>
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!-- /.col-->
+          </div>
+          <!-- /.row-->
+        </div>
+      </div>
+      <footer class="footer">
+        <div>&copy; 2021 creativeLabs.</div>
+        <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/bootstrap/ui-components/">CoreUI UI
+            Components</a></div>
+      </footer>
+    </div>
+    <!-- CoreUI and necessary plugins-->
+    <script src="node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
+    <script src="node_modules/simplebar/dist/simplebar.min.js"></script>
+    <!-- We use those scripts to show code examples, you should remove them in your application.-->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/plugins/unescaped-markup/prism-unescaped-markup.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/plugins/normalize-whitespace/prism-normalize-whitespace.js"></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="node_modules/chart.js/dist/chart.min.js"></script>
+    <script src="node_modules/@coreui/chartjs/dist/js/coreui-chartjs.js"></script>
+    <script src="node_modules/@coreui/utils/dist/coreui-utils.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    </script>
+</body>
+
+</html>
